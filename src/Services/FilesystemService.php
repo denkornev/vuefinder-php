@@ -21,7 +21,7 @@ class FilesystemService implements FilesystemServiceInterface
     public function listContents(string $path, bool $deep = false): array
     {
         return $this->manager
-            ->listContents($path)
+            ->listContents($path, $deep)
             ->map(fn(StorageAttributes $attributes) => $attributes->jsonSerialize())
             ->toArray();
     }
